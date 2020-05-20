@@ -25,8 +25,8 @@ class PostingDAOTest {
         dao = new DAO();
         postingDAO = new PostingDAO();
         dao.openConnection();
-        postingDAO.deleteTable(dao.getConnection());
-        postingDAO.createTable(dao.getConnection());
+        postingDAO.deleteTable(dao);
+        postingDAO.createTable(dao);
     }
 
     @AfterEach
@@ -39,7 +39,7 @@ class PostingDAOTest {
     void insert_read() {
         Posting toInsert = new Posting("ID123", "ID345", DateMaker.getDate(2011, Calendar.FEBRUARY, 1));
         assertNull(postingDAO.read("ID123", dao.getConnection()));
-        assertTrue(postingDAO.insert(toInsert, dao.getConnection()));
+        assertTrue(postingDAO.insert(toInsert, dao));
         Posting actual = postingDAO.read("ID123", dao.getConnection());
         assertNotNull(actual);
         assertEquals(toInsert, actual);
@@ -49,11 +49,11 @@ class PostingDAOTest {
     void delete() {
         Posting toDelete = new Posting("ID123", "ID345", DateMaker.getDate(2011, Calendar.FEBRUARY, 1));
         //insert
-        assertTrue(postingDAO.insert(toDelete, dao.getConnection()));
+        assertTrue(postingDAO.insert(toDelete, dao));
         //make sure its there
         assertEquals(toDelete, postingDAO.read("ID123", dao.getConnection()));
         //delete
-        assertTrue(postingDAO.delete("ID123", dao.getConnection()));
+        assertTrue(postingDAO.delete("ID123", dao));
         //make sure its not there now
         assertNull(postingDAO.read("ID123", dao.getConnection()));
     }
@@ -80,7 +80,7 @@ class PostingDAOTest {
         assertNull(postingDAO.read("ID5", dao.getConnection()));
 
         //insert all
-        assertTrue(postingDAO.insertMany(postings, dao.getConnection()));
+        assertTrue(postingDAO.insertMany(postings, dao));
 
         //assert they are all there now!
         assertEquals(p1, postingDAO.read("ID1", dao.getConnection()));
@@ -106,7 +106,7 @@ class PostingDAOTest {
         postings.add(p5);
 
         //insert all
-        assertTrue(postingDAO.insertMany(postings, dao.getConnection()));
+        assertTrue(postingDAO.insertMany(postings, dao));
 
         List<Posting> expected = postingDAO.getPostingsBetweenDates(DateMaker.getDate(2010, Calendar.JANUARY, 1), DateMaker.getDate(2016, Calendar.JANUARY, 15), dao.getConnection());
         assertTrue(expected.contains(p1));

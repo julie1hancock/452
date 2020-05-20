@@ -15,60 +15,54 @@ import models.Posting;
  */
 public class PostingDAO{
 
-    public boolean createTable(Connection c){
-        assert c != null;
-        String createTableStmt = "CREATE TABLE IF NOT EXISTS Posting(" +
+    public boolean createTable(DAO parent){
+        return parent.executeUpdate("CREATE TABLE IF NOT EXISTS Posting(" +
                 "postingID VARCHAR(256) NOT NULL,\n" +
                 "addressID VARCHAR(256) NOT NULL,\n" +
                 "datePosted DATE NOT NULL,\n" +
                 "PRIMARY KEY ( postingID )\n" +
-                ");";
-
-        try {
-            Statement statement = c.createStatement();
-            statement.executeUpdate(createTableStmt);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-        return true;
+                ");");
     }
 
-    public boolean deleteTable(Connection c){
-        assert c != null;
-        String createTableStmt = "DROP TABLE Posting";
-
-        try {
-            Statement statement = c.createStatement();
-            statement.executeUpdate(createTableStmt);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-        return true;
+    public boolean deleteTable(DAO parent){
+        return parent.executeUpdate("DROP TABLE Posting");
     }
-
 
     /**
      * inserts single tuple/row into Posting table
      * @param model - row to insert
      * @return success
      */
-    public boolean insert(Posting model, Connection c) {
+    public boolean insert(Posting model, DAO parent) {
         assert model.isValid();
-        assert c != null;
-        String insertStatement = String.format("INSERT INTO Posting " +
+        return parent.executeUpdate(String.format("INSERT INTO Posting " +
                 "(postingID, addressID, datePosted)" +
-                "VALUES ('%s','%s','%s')", model.getPostingID(), model.getAddressID(), model.getDatePosted());
-        try {
-            Statement statement = c.createStatement();
-            statement.execute(insertStatement);
-            statement.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
+                "VALUES ('%s','%s','%s')", model.getPostingID(), model.getAddressID(), model.getDatePosted()));
+    }
+
+    /**
+     * Delete posting row w/ matching
+     * @param postingID
+     * @return success
+     */
+    public boolean delete(String postingID, DAO parent) {
+        assert postingID != null && !postingID.isEmpty();
+        return parent.executeUpdate(String.format("DELETE FROM Posting WHERE postingID = '%s';", postingID));
+    }
+
+    /**
+     * inserts many tuple/row into Posting table
+     * @param models - list of rows to insert
+     * @return success
+     */
+    public boolean insertMany(List<Posting> models, DAO parent) {
+        boolean flag = true;
+        for (Posting model : models) {
+            if(!insert(model, parent)) {
+                flag = false;
+            }
         }
-        return true;
+        return flag;
     }
 
     /**
@@ -103,47 +97,11 @@ public class PostingDAO{
         return p;
     }
 
-    /**
-     * Delete posting row w/ matching
-     * @param postingID
-     * @return success
-     */
-    public boolean delete(String postingID, Connection c) {
-        assert postingID != null && !postingID.isEmpty();
-        assert c != null;
-        String deleteStatement = String.format("DELETE FROM Posting " +
-                "WHERE postingID = '%s';", postingID);
-        try {
-            Statement statement = c.createStatement();
-            statement.execute(deleteStatement);
-            statement.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-        return true;
-    }
-
-    /**
-     * inserts many tuple/row into Posting table
-     * @param models - list of rows to insert
-     * @return success
-     */
-    public boolean insertMany(List<Posting> models, Connection c) {
-        boolean flag = true;
-        for (Posting model : models) {
-            if(!insert(model, c)) {
-                flag = false;
-            }
-        }
-        return flag;
-    }
 
     public List<Posting> getPostingsBetweenDates(Date firstDate, Date secondDate, Connection c){
         assert firstDate != null && secondDate != null;
         assert c != null;
         String query = String.format("SELECT * FROM Posting WHERE datePosted >= '%s' AND datePosted <= '%s';", firstDate, secondDate);
-
 
         List<Posting> postings = new ArrayList<>();
         try {

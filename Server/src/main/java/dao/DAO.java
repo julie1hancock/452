@@ -42,23 +42,23 @@ public class DAO {
 
     }
 
-//    public void closeConnection(boolean commit) {
-//        try {
-//            if (commit) {
-//                conn.commit();
-//            } else {
-//                conn.rollback();
-//            }
-//            conn.close();
-//            conn = null;
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//            throw new Error("Unable to close database connection");
-//        }
-//    }
 
     public Connection getConnection() {
         if(conn == null) throw new NullPointerException("Trying to get null connection!");
         return conn;
+    }
+
+
+
+    public boolean executeUpdate(String update){
+        assert conn != null;
+        try {
+            Statement statement = conn.createStatement();
+            statement.executeUpdate(update);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
     }
 }
