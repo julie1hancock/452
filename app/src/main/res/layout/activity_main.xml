@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.appcompat.widget.Toolbar
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:id="@+id/toolbar"
+        android:background="@color/colorPrimary"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                />
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/please_enter_following_block"
+        android:id="@+id/pleaseEnterFollowingBlock"
+        style="@style/textLabelBordered"
+        />
+
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/pleaseEnterFollowingBlock"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/most_important"
+        android:id="@+id/mostImportant"
+        style="@style/textLabel"
+        android:gravity="center"
+        />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintTop_toBottomOf="@id/mostImportant"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:layout_margin="0dp"
+        >
+        <TextView
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/mostImportantOptionWasher"
+            android:text="@string/most_important1"
+            android:id="@+id/mostImportantOptionRent"
+            style="@style/textLabel"
+            android:gravity="center"
+            />
+<!--        <View-->
+<!--            app:layout_constraintTop_toTopOf="@id/mostImportantOptionRent"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/mostImportantOptionRent"-->
+<!--            app:layout_constraintStart_toEndOf="@id/mostImportantOptionRent"-->
+<!--            android:layout_width="2dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:background="@color/black"-->
+<!--            />-->
+        <ToggleButton
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/mostImportantOptionRent"
+            app:layout_constraintEnd_toStartOf="@id/mostImportantOptionBedrooms"
+            android:textOff="@string/most_important2"
+            android:textOn="@string/most_important2"
+            android:id="@+id/mostImportantOptionWasher"
+            style="@style/textLabel"
+            android:gravity="center"
+            />
+
+        <ToggleButton
+            style="@style/toggleButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/mostImportantOptionWasher"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textOff="@string/most_important3"
+            android:textOn="@string/most_important3"
+            android:id="@+id/mostImportantOptionBedrooms"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

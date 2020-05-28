@@ -1,3 +1,17 @@
 <resources>
-    <string name="app_name">Temp452Project</string>
+    <string name="app_name">Don\'t Get Screwed By Housing</string>
+    <string name="please_enter_following_block">Please enter the following information about the contract you are comparing.</string>
+    <string name="monthly_rent">Monthly Rent</string>
+    <string name="city">City</string>
+    <string name="washer_dryer">Has Washer &amp; Dryer?</string>
+    <string name="num_bed"># of Bedrooms</string>
+    <string name="num_bath"># of Bathrooms</string>
+    <string name="most_important">What is most important to you?</string>
+    <string name="rent_hint">$ Dollar Amount</string>
+    <string name="city1">Orem</string>
+    <string name="city2">Provo</string>
+    <string name="most_important1">Rent</string>
+    <string name="most_important2">Washer/Dryer</string>
+    <string name="most_important3">Bedrooms</string>
+    <string name="rental_information">Rental Information</string>
 </resources>
