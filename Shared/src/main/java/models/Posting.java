@@ -8,6 +8,9 @@ public class Posting {
     private String addressID;
     private Date datePosted;
 
+
+
+
     public Posting() {
         postingID = null;
         addressID = null;

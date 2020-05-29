@@ -101,4 +101,5 @@
         <item name="android:background">@drawable/circle</item>
         <item name="android:tint">@color/white</item>
     </style>
+
 </resources>
