@@ -44,54 +44,73 @@
         style="@style/textLabel"
         android:gravity="center"
         />
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         app:layout_constraintTop_toBottomOf="@id/mostImportant"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/border"
-        android:layout_margin="0dp"
+        android:padding="2dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
         >
-        <TextView
+
+        <ToggleButton
+            style="@style/toggleButton"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/mostImportantOptionWasher"
-            android:text="@string/most_important1"
-            android:id="@+id/mostImportantOptionRent"
-            style="@style/textLabel"
-            android:gravity="center"
+            app:layout_constraintEnd_toStartOf="@id/horizontal1"
+            android:textOff="@string/most_important1"
+            android:textOn="@string/most_important1"
+            android:id="@+id/mostImportantOption1"
             />
-<!--        <View-->
-<!--            app:layout_constraintTop_toTopOf="@id/mostImportantOptionRent"-->
-<!--            app:layout_constraintBottom_toBottomOf="@id/mostImportantOptionRent"-->
-<!--            app:layout_constraintStart_toEndOf="@id/mostImportantOptionRent"-->
-<!--            android:layout_width="2dp"-->
-<!--            android:layout_height="0dp"-->
-<!--            android:background="@color/black"-->
-<!--            />-->
-        <ToggleButton
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/mostImportantOptionRent"
-            app:layout_constraintEnd_toStartOf="@id/mostImportantOptionBedrooms"
-            android:textOff="@string/most_important2"
-            android:textOn="@string/most_important2"
-            android:id="@+id/mostImportantOptionWasher"
-            style="@style/textLabel"
-            android:gravity="center"
+
+
+        <View
+            style="@style/toggleLine"
+
+            app:layout_constraintTop_toTopOf="@id/mostImportantOption1"
+            app:layout_constraintBottom_toBottomOf="@id/mostImportantOption1"
+            app:layout_constraintStart_toEndOf="@id/mostImportantOption1"
+            app:layout_constraintEnd_toStartOf="@id/mostImportantOption2"
+
+            android:id="@+id/horizontal1"
             />
 
         <ToggleButton
             style="@style/toggleButton"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/mostImportantOptionWasher"
+            app:layout_constraintStart_toEndOf="@id/horizontal1"
+            app:layout_constraintEnd_toStartOf="@id/horizontal2"
+            android:textOff="@string/most_important2"
+            android:textOn="@string/most_important2"
+            android:id="@+id/mostImportantOption2"
+            />
+
+        <View
+            style="@style/toggleLine"
+
+            app:layout_constraintTop_toTopOf="@id/mostImportantOption2"
+            app:layout_constraintBottom_toBottomOf="@id/mostImportantOption2"
+            app:layout_constraintStart_toEndOf="@id/mostImportantOption2"
+            app:layout_constraintEnd_toStartOf="@id/mostImportantOption3"
+            android:id="@+id/horizontal2"
+            />
+
+        <ToggleButton
+            style="@style/toggleButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/horizontal2"
             app:layout_constraintEnd_toEndOf="parent"
             android:textOff="@string/most_important3"
             android:textOn="@string/most_important3"
-            android:id="@+id/mostImportantOptionBedrooms"
+            android:id="@+id/mostImportantOption3"
             />
 
 

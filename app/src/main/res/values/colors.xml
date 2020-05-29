@@ -6,11 +6,38 @@
 
     <color name="black">#000000</color>
     <color name="white">#ffffff</color>
-    <color name="yellow">#ffff00</color>
+
 
     <color name="selected">#00ff00</color>
     <color name="not_selected">#ff0000</color>
 
 
+    <color name="light_pink">#ffb6c1</color>
+    <color name="bright_pink">#ff00ff</color>
+    <color name="dark_pink">#980187</color>
+
+    <color name="light_red">#ffa6a6</color>
+    <color name="bright_red">#ff0000</color>
+    <color name="dark_red">#8b0000</color>
+
+    <color name="light_orange">#ffc87c</color>
+    <color name="bright_orange">#ffa500</color>
+    <color name="dark_orange">#cc5500</color>
+
+    <color name="light_yellow">#fffcbb</color>
+    <color name="bright_yellow">#ffff00</color>
+    <color name="dark_yellow">#9b870c</color>
+
+    <color name="light_green">#98FB98</color>
+    <color name="bright_green">#00ff00</color>
+    <color name="dark_green">#013220</color>
+
+    <color name="light_blue">#58cced</color>
+    <color name="bright_blue">#0000ff</color>
+    <color name="dark_blue">#072f5f</color>
+
+    <color name="light_purple">#bcb4d7</color>
+    <color name="bright_purple">#bc13fe</color>
+    <color name="purple">#421c52</color>
 
 </resources>
