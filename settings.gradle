@@ -1,2 +1,2 @@
-include ':app', ':Server'
+include ':app', ':Server', ':Shared'
 rootProject.name='Temp452Project'

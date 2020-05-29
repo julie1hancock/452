@@ -4,6 +4,7 @@ apply plugin: 'kotlin'
 dependencies {
     implementation 'mysql:mysql-connector-java:8.0.20'
     testImplementation('org.junit.jupiter:junit-jupiter:5.5.2')
+    implementation project(path: ':Shared')
 }
 
 
