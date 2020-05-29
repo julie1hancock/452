@@ -13,5 +13,7 @@
     <string name="most_important1">Rent</string>
     <string name="most_important2">Washer/Dryer</string>
     <string name="most_important3">Bedrooms</string>
-    <string name="rental_information">Rental Information</string>
+    <string name="next_rental_information">Next: Rental Information</string>
+    <string name="bedroom_hint">i.e. 2</string>
+    <string name="bathroom_hint">i.e. 1.5</string>
 </resources>

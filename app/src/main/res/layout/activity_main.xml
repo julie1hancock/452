@@ -4,58 +4,195 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
-
+<!--    toolbar-->
     <androidx.appcompat.widget.Toolbar
+        style="@style/toolbar"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
+        app:layout_constraintStart_toStartOf="parent"
         android:id="@+id/toolbar"
-        android:background="@color/colorPrimary"
-        app:navigationIcon="?attr/homeAsUpIndicator"
         >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/app_name"
-                android:textColor="@color/white"
-                android:textSize="20dp"
+                style="@style/toolbarText"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.appcompat.widget.Toolbar>
 
-
-    <TextView
+    <View
         app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/gapView1"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+    />
+
+<!--    instruction block-->
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/gapView1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="@string/please_enter_following_block"
         android:id="@+id/pleaseEnterFollowingBlock"
-        style="@style/textLabelBordered"
+        style="@style/borderedText"
         />
 
-
-    <TextView
+<!--    grid-->
+    <GridLayout
+        android:layout_marginTop="32dp"
         app:layout_constraintTop_toBottomOf="@id/pleaseEnterFollowingBlock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:id="@+id/mainGridLayout"
+        >
+
+<!--        rent-->
+        <TextView
+            style="@style/leftLabel"
+            android:text="@string/monthly_rent"
+            android:layout_row="0"
+            />
+        <EditText
+            style="@style/rightValue"
+            android:layout_row="0"
+            android:hint="@string/rent_hint"
+            android:inputType="numberDecimal"
+            />
+
+<!--        city-->
+        <TextView
+            style="@style/leftLabel"
+            android:text="@string/city"
+            android:layout_row="1"
+            />
+        <LinearLayout
+            style="@style/rightValue"
+            android:layout_row="1"
+            android:orientation="vertical"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            >
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:id="@+id/cityOptions"
+                android:padding="2dp"
+                >
+                <ToggleButton
+                    style="@style/toggleButton"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/horizontalCity"
+                    android:textOff="@string/city1"
+                    android:textOn="@string/city1"
+                    android:id="@+id/city1"
+                    />
+                <View
+                    style="@style/toggleLine"
+                    app:layout_constraintTop_toTopOf="@id/city1"
+                    app:layout_constraintBottom_toBottomOf="@id/city1"
+                    app:layout_constraintStart_toEndOf="@id/city1"
+                    app:layout_constraintEnd_toStartOf="@id/city2"
+                    android:id="@+id/horizontalCity"
+                    />
+                <ToggleButton
+                    style="@style/toggleButton"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/horizontalCity"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textOff="@string/city2"
+                    android:textOn="@string/city2"
+                    android:id="@+id/city2"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+
+<!--        washer/dryer-->
+        <TextView
+            style="@style/leftLabel"
+            android:text="@string/washer_dryer"
+            android:layout_row="2"
+            />
+        <Switch
+            android:layout_row="2"
+            android:layout_column="1"
+            android:checked="true"
+            />
+
+<!--        bedrooms-->
+        <TextView
+            style="@style/leftLabel"
+            android:text="@string/num_bed"
+            android:layout_row="3"
+            />
+        <EditText
+            style="@style/rightValue"
+            android:hint="@string/bedroom_hint"
+            android:layout_row="3"
+            android:inputType="number"
+            />
+
+<!--        bathrooms-->
+        <TextView
+            style="@style/leftLabel"
+            android:text="@string/num_bath"
+            android:layout_row="4"
+            />
+        <EditText
+            style="@style/rightValue"
+            android:hint="@string/bathroom_hint"
+            android:layout_row="4"
+            android:inputType="numberDecimal"
+            />
+
+    </GridLayout>
+
+
+
+
+
+
+
+<!--    important layout-->
+    <TextView
+        android:layout_marginTop="32dp"
+
+        app:layout_constraintTop_toBottomOf="@id/mainGridLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="@string/most_important"
         android:id="@+id/mostImportant"
-        style="@style/textLabel"
+        style="@style/simpleText"
         android:gravity="center"
+        android:textStyle="bold"
         />
-
-
     <androidx.constraintlayout.widget.ConstraintLayout
         app:layout_constraintTop_toBottomOf="@id/mostImportant"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="32dp"
         android:background="@drawable/border"
         android:padding="2dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
+        android:id="@+id/importantOptions"
         >
 
         <ToggleButton
@@ -112,8 +249,32 @@
             android:textOn="@string/most_important3"
             android:id="@+id/mostImportantOption3"
             />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
+<!--    next-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:padding="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
 
+        >
+        <ImageView
+            style="@style/nextArrow"
+            android:id="@+id/mainNextArrow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+        <TextView
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="@string/next_rental_information"
+            app:layout_constraintTop_toTopOf="@id/mainNextArrow"
+            app:layout_constraintBottom_toBottomOf="@id/mainNextArrow"
+            app:layout_constraintEnd_toStartOf="@id/mainNextArrow"
+            style="@style/simpleText"
+        />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
