@@ -1,46 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <!--OPTIONAL text is always gray -->
 
-    <color name="black">#000000</color>
-    <color name="white">#ffffff</color>
-    <color name="gray">#555555</color>
-    <color name="light_gray">#aaaaaa</color>
-    <color name="dark_gray">#333333</color>
+<!--toolbar background-->
+        <color name="colorPrimary">#608bb1</color>
+<!-- toolbar text-->
+        <color name="colorPrimaryDark">#273f54</color>
+<!--  ?? -->
+    <color name="colorAccent">#000000</color>
+
+<!--    top text border, circle for arrow, separators for choosing from 2/3 things-->
+    <color name="black">#333333</color>
+
+<!-- arrow color > -->
+    <color name="white">#dddddd</color>
+    <color name="actual_white">#ffffff</color>
+
+<!--    button bkg-->
+<!--    <color name="gray">#000000</color>-->
+
+<!--    all text-->
+    <color name="text_gray">#333333</color>
 
 
-    <color name="selected">#00ff00</color>
-    <color name="not_selected">#ff0000</color>
+    <color name="background">#c4d4e2</color>
+<!--    b1c6d9 -->
+
+<!--    these 2 just used on first screen for selecty guys-->
+    <color name="selected">#4f7fa0</color>
+    <color name="not_selected">#bbbbbb</color>
 
 
-    <color name="light_pink">#ffb6c1</color>
-    <color name="bright_pink">#ff00ff</color>
-    <color name="dark_pink">#980187</color>
+<!--these 3 on last screen for background-->
+    <color name="above_avg">#5d9451</color>
+    <color name="is_avg">#ffdb58</color>
+    <color name="below_avg">#ff6961</color>
 
-    <color name="light_red">#ffa6a6</color>
-    <color name="bright_red">#ff0000</color>
-    <color name="dark_red">#8b0000</color>
+<!--    should never be used-->
+    <color name="yikes">#4f52a9</color>
 
-    <color name="light_orange">#ffc87c</color>
-    <color name="bright_orange">#ffa500</color>
-    <color name="dark_orange">#cc5500</color>
 
-    <color name="light_yellow">#fffcbb</color>
-    <color name="bright_yellow">#ffff00</color>
-    <color name="dark_yellow">#9b870c</color>
 
-    <color name="light_green">#98FB98</color>
-    <color name="bright_green">#00ff00</color>
-    <color name="dark_green">#013220</color>
+<!--    <color name="light_pink">#ffb6c1</color>-->
+<!--    <color name="bright_pink">#ff00ff</color>-->
+<!--    <color name="dark_pink">#980187</color>-->
 
-    <color name="light_blue">#58cced</color>
-    <color name="bright_blue">#0000ff</color>
-    <color name="dark_blue">#072f5f</color>
+<!--    <color name="light_red">#ffa6a6</color>-->
+<!--    <color name="bright_red">#ff0000</color>-->
+<!--    <color name="dark_red">#8b0000</color>-->
 
-    <color name="light_purple">#bcb4d7</color>
-    <color name="bright_purple">#bc13fe</color>
-    <color name="purple">#421c52</color>
+<!--    <color name="light_orange">#ffc87c</color>-->
+<!--    <color name="bright_orange">#ffa500</color>-->
+<!--    <color name="dark_orange">#cc5500</color>-->
+
+<!--    <color name="light_yellow">#fffcbb</color>-->
+<!--    <color name="bright_yellow">#ffff00</color>-->
+<!--    <color name="dark_yellow">#9b870c</color>-->
+
+<!--    <color name="light_green">#98FB98</color>-->
+<!--    <color name="bright_green">#00ff00</color>-->
+<!--    <color name="dark_green">#013220</color>-->
+
+<!--    <color name="light_blue">#58cced</color>-->
+<!--    <color name="bright_blue">#0000ff</color>-->
+<!--    <color name="dark_blue">#072f5f</color>-->
+
+<!--    <color name="light_purple">#bcb4d7</color>-->
+<!--    <color name="bright_purple">#bc13fe</color>-->
+<!--    <color name="purple">#421c52</color>-->
 
 </resources>

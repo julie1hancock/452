@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    >
+
+    <!--    toolbar-->
+    <androidx.appcompat.widget.Toolbar
+        style="@style/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/toolbar"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                style="@style/toolbarText"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <View
+        style="@style/topGap"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/gapView1"
+        />
+
+    <!--    optional block-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/optionalInfo"
+        app:layout_constraintTop_toBottomOf="@id/gapView1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/borderedLayout"
+        >
+        <TextView
+            style="@style/optionalText"
+            android:text="@string/opt_fin_info"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/skipBtn"
+            android:id="@+id/optionalText"
+            />
+        <Button
+            style="@style/button"
+            android:id="@+id/skipBtn"
+            app:layout_constraintTop_toBottomOf="@id/optionalText"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--    grid-->
+    <GridLayout
+        style="@style/gridLayout"
+        app:layout_constraintTop_toBottomOf="@id/optionalInfo"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/mainGridLayout"
+        >
+
+        <!--        util-->
+        <TextView
+            style="@style/leftLabel"
+            android:text="@string/month_util"
+            android:layout_row="0"
+            />
+        <EditText
+            android:id="@+id/utilValue"
+            android:layout_width="250dp"
+            style="@style/editTextValue"
+            android:hint="@string/dollar_amt"
+            android:layout_row="0"
+            android:inputType="numberDecimal"
+            />
+        <!--        security deposit-->
+        <TextView
+            style="@style/leftLabel"
+            android:text="@string/sec_depo"
+            android:layout_row="1"
+            />
+        <EditText
+            android:id="@+id/securityDepoValue"
+            style="@style/editTextValue"
+            android:layout_width="250dp"
+            android:hint="@string/dollar_amt"
+            android:layout_row="1"
+            android:inputType="numberDecimal"
+            />
+        <!--        parking-->
+        <TextView
+            style="@style/leftLabel"
+            android:text="@string/park_fee"
+            android:layout_row="2"
+            />
+        <EditText
+            android:id="@+id/parkingValue"
+            style="@style/editTextValue"
+            android:layout_width="250dp"
+            android:hint="@string/dollar_amt"
+            android:layout_row="2"
+            android:inputType="numberDecimal"
+            />
+        <!--        app fee-->
+        <TextView
+            style="@style/leftLabel"
+            android:text="@string/app_fee"
+            android:layout_row="3"
+            />
+        <EditText
+            android:id="@+id/appFeeValue"
+            style="@style/editTextValue"
+            android:layout_width="250dp"
+            android:hint="@string/dollar_amt"
+            android:layout_row="3"
+            android:inputType="numberDecimal"
+            />
+
+    </GridLayout>
+
+    <!--    next-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/nextLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+        <ImageView
+            style="@style/nextArrow"
+            android:id="@+id/mainNextArrow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+        <TextView
+            android:text="@string/next_amen_info"
+            app:layout_constraintTop_toTopOf="@id/mainNextArrow"
+            app:layout_constraintBottom_toBottomOf="@id/mainNextArrow"
+            app:layout_constraintEnd_toStartOf="@id/mainNextArrow"
+            style="@style/nextText"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

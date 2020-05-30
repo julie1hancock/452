@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    >
+
+    <!--    toolbar-->
+    <androidx.appcompat.widget.Toolbar
+        style="@style/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/toolbar"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                style="@style/toolbarText"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <View
+        style="@style/topGap"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/gapView1"
+        />
+
+    <!--    optional block-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/optionalInfo"
+        app:layout_constraintTop_toBottomOf="@id/gapView1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/borderedLayout"
+        >
+        <TextView
+            style="@style/optionalText"
+            android:text="@string/opt_amen_info"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/skipBtn"
+            android:id="@+id/optionalText"
+            />
+        <Button
+            style="@style/button"
+            android:id="@+id/skipBtn"
+            app:layout_constraintTop_toBottomOf="@id/optionalText"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--    grid-->
+    <GridLayout
+        style="@style/gridLayout"
+        app:layout_constraintTop_toBottomOf="@id/optionalInfo"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/mainGridLayout"
+        >
+
+        <!--        parking-->
+        <TextView
+            style="@style/leftLabel"
+            android:text="@string/parking"
+            android:layout_row="0"
+            />
+        <Switch
+            android:id="@+id/parkingValue"
+            android:layout_row="0"
+            android:checked="true"
+            style="@style/switchValue"
+            />
+
+        <!--        furnished-->
+        <TextView
+            style="@style/leftLabel"
+            android:layout_width="200dp"
+            android:text="@string/furnished"
+            android:layout_row="1"
+            />
+        <Switch
+            android:id="@+id/furnishedValue"
+            android:layout_row="1"
+            style="@style/switchValue"
+            android:checked="true"
+            />
+        <!--        pets-->
+        <TextView
+            style="@style/leftLabel"
+            android:text="@string/pet_friend"
+            android:layout_row="2"
+            />
+        <Switch
+            android:id="@+id/petFriendlyValue"
+            android:layout_row="2"
+            style="@style/switchValue"
+            />
+
+    </GridLayout>
+
+    <Button
+        style="@style/bigButton"
+        android:id="@+id/seeResults"
+        app:layout_constraintTop_toBottomOf="@id/mainGridLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/view_comp"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

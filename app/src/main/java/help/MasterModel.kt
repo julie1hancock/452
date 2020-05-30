@@ -16,6 +16,32 @@ object MasterModel {
         }
     }
 
+    fun secondScreen(complex: Boolean, basement: Boolean, house: Boolean, numMonths: Int) {
+        rental.complex = complex
+        rental.basement = basement
+        rental.house = house
+        rental.contractLength = numMonths
+    }
+
+    fun thirdScreen(address: String, aptNum: String, zipCode: Int) {
+        this.address.address = address
+        this.address.aptNum = aptNum
+        this.address.zipCode = zipCode
+    }
+
+    fun fourthScreen(utils: Double, deposit: Double, parking: Double, appFee: Double) {
+        this.financial.monthlyUtilities = utils
+        financial.securityDeposit = deposit
+        financial.parkingFee = parking
+        financial.applicationFee = appFee
+    }
+
+    fun fifthScreen(parking: Boolean, furnished: Boolean, pets: Boolean) {
+        amenities.furnished = furnished
+        amenities.hasParking = parking
+        amenities.petFriendly = pets
+    }
+
     var address = Address()
     var amenities = Amenities()
     var financial = Financial()

@@ -1,5 +1,6 @@
 package view
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -38,15 +39,11 @@ class MainActivity : AppCompatActivity() {
         mainNextArrow.setOnClickListener{
             if(isFilledOut()){
                 MasterModel.firstScreen(monthlyRent, citySelected, hasWasherDryer, numBedrooms, numBathrooms, importantSelected)
-                Toast.makeText(this, "GOTO NEXT ACTIVITY", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, RentalActivity::class.java))
             } else {
                 Toast.makeText(this, "Sorry, please fill out all information before continuing", Toast.LENGTH_LONG).show()
             }
-
-
-
         }
-
     }
 
     private fun isFilledOut(): Boolean = monthlyRent > 0 && numBedrooms > 0 && numBathrooms > 0

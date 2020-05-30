@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    >
+
+    <!--    toolbar-->
+    <androidx.appcompat.widget.Toolbar
+        style="@style/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/toolbar"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                style="@style/toolbarText"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <View
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/gapView1"
+        style="@style/topGap"
+        />
+
+    <!--    optional block-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/optionalInfo"
+        app:layout_constraintTop_toBottomOf="@id/gapView1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/borderedLayout"
+        >
+        <TextView
+            style="@style/optionalText"
+            android:text="@string/opt_rental_info"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/skipBtn"
+            android:id="@+id/optionalText"
+            />
+        <Button
+            style="@style/button"
+            android:id="@+id/skipBtn"
+            app:layout_constraintTop_toBottomOf="@id/optionalText"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--    grid-->
+    <GridLayout
+        style="@style/gridLayout"
+        app:layout_constraintTop_toBottomOf="@id/optionalInfo"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/mainGridLayout"
+        >
+
+<!--        complex-->
+        <TextView
+            style="@style/leftLabel"
+            android:text="@string/complex_question"
+            android:layout_row="0"
+            />
+        <Switch
+            style="@style/switchValue"
+            android:id="@+id/complexValue"
+            android:layout_row="0"
+            android:checked="true"
+            />
+
+<!--        basement-->
+        <TextView
+            style="@style/leftLabel"
+            android:text="@string/basement_question"
+            android:layout_row="1"
+            />
+        <Switch
+            android:id="@+id/basementValue"
+            android:layout_row="1"
+            style="@style/switchValue"
+            />
+
+<!--        house-->
+        <TextView
+            style="@style/leftLabel"
+            android:text="@string/house_question"
+            android:layout_row="2"
+            />
+        <Switch
+            android:id="@+id/houseValue"
+            android:layout_row="2"
+            style="@style/switchValue"
+            />
+
+<!--        length-->
+        <TextView
+            style="@style/leftLabel"
+            android:text="@string/contract_len"
+            android:layout_row="3"
+            />
+        <EditText
+            style="@style/editTextValue"
+            android:id="@+id/lengthValue"
+            android:layout_width="190dp"
+            android:hint="@string/number_hint"
+            android:layout_row="3"
+            android:inputType="number"
+            />
+
+    </GridLayout>
+
+    <!--    next-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/nextLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+        <ImageView
+            style="@style/nextArrow"
+            android:id="@+id/mainNextArrow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+        <TextView
+            style="@style/nextText"
+            android:text="@string/next_address_info"
+            app:layout_constraintTop_toTopOf="@id/mainNextArrow"
+            app:layout_constraintBottom_toBottomOf="@id/mainNextArrow"
+            app:layout_constraintEnd_toStartOf="@id/mainNextArrow"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

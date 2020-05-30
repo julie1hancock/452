@@ -1,5 +1,14 @@
 <resources>
+
     <string name="app_name">Don\'t Get Screwed By Housing</string>
+
+    <string name="number_hint">i.e. 2</string>
+    <string name="decimal_hint">i.e. 1.5</string>
+    <string name="dollar_amt">$ Dollar Amount</string>
+    <string name="click_to_skip">Click to skip</string>
+
+
+<!--    main activity-->
     <string name="please_enter_following_block">Please enter the following information about the contract you are comparing.</string>
     <string name="monthly_rent">Monthly Rent</string>
     <string name="city">City</string>
@@ -7,13 +16,53 @@
     <string name="num_bed"># of Bedrooms</string>
     <string name="num_bath"># of Bathrooms</string>
     <string name="most_important">What is most important to you?</string>
-    <string name="rent_hint">$ Dollar Amount</string>
     <string name="city1">Orem</string>
     <string name="city2">Provo</string>
     <string name="most_important1">Rent</string>
     <string name="most_important2">Washer/Dryer</string>
     <string name="most_important3">Bedrooms</string>
     <string name="next_rental_information">Next: Rental Information</string>
-    <string name="bedroom_hint">i.e. 2</string>
-    <string name="bathroom_hint">i.e. 1.5</string>
+
+<!--    rental activity-->
+    <string name="opt_rental_info">OPTIONAL rental information</string>
+    <string name="basement_question">Is it a basement</string>
+    <string name="complex_question">Is it a complex?</string>
+    <string name="house_question">Is it a house?</string>
+    <string name="contract_len">Contract length (months)</string>
+    <string name="next_address_info">Next: Address Information</string>
+
+<!--address activity-->
+    <string name="opt_add_info">OPTIONAL address information</string>
+    <string name="address">Address</string>
+    <string name="apt_num">Apartment #</string>
+    <string name="zip">Zip Code</string>
+    <string name="next_fin_info">Next: Financial Information</string>
+    <string name="addr_hint">i.e. 466 N 800 E</string>
+    <string name="zip_hint">84097</string>
+
+
+<!--    financial activity-->
+    <string name="opt_fin_info">OPTIONAL financial information</string>
+    <string name="month_util">Monthly Utilities</string>
+    <string name="sec_depo">Security Deposit</string>
+    <string name="park_fee">Parking Fee</string>
+    <string name="app_fee">Application Fee</string>
+    <string name="next_amen_info">Next: Amenities Information</string>
+
+    <!--    amenities activity-->
+    <string name="opt_amen_info">OPTIONAL amenities information</string>
+    <string name="parking">Has Parking?</string>
+    <string name="furnished">Is furnished?</string>
+    <string name="pet_friend">Is pet friendly?</string>
+    <string name="view_comp">View the Comparison!!!</string>
+
+    <!--final screen-->
+    <string name="above_avg">Your contract is above average!</string>
+    <string name="is_avg">Your contract is average!</string>
+    <string name="below_avg">Your contract is below average!</string>
+    <string name="based_rent">(Based off cost of rent comparisons)</string>
+    <string name="based_laundry">(Based off cost of Washer/Dryer comparisons)</string>
+    <string name="based_bedroom">(Based off cost of bedroom comparisons)</string>
+
+
 </resources>
