@@ -39,6 +39,7 @@
 <!--    should never be used-->
     <color name="yikes">#4f52a9</color>
 
+    <color name="transparent">#00ffffff</color>
 
 
 <!--    <color name="light_pink">#ffb6c1</color>-->
