@@ -1,9 +1,11 @@
 package help
 
 import models.*
+import java.util.*
 
 object MasterModel {
 
+    var isComparing = true
     var rating = Rating.YIKES
 
     var address = Address()
@@ -13,7 +15,7 @@ object MasterModel {
     var rental = Rental()
     var importance = Importance.Rent
 
-    fun firstScreen(monthlyRent: Double, citySelected: Int, hasWasherDryer: Boolean, numBedrooms: Int, numBathrooms: Double, importantSelected: Int) {
+    fun firstScreen(monthlyRent: Double, citySelected: Int, hasWasherDryer: Boolean, numBedrooms: Double, numBathrooms: Double, importantSelected: Int) {
         financial.monthlyRent = monthlyRent
         address.city = if(citySelected == 1) "Orem" else "Provo"
         amenities.hasWasherDryer = hasWasherDryer
@@ -26,7 +28,7 @@ object MasterModel {
         }
     }
 
-    fun secondScreen(complex: Boolean, basement: Boolean, house: Boolean, numMonths: Int) {
+    fun secondScreen(complex: Boolean, basement: Boolean, house: Boolean, numMonths: Double) {
         rental.complex = complex
         rental.basement = basement
         rental.house = house
@@ -51,6 +53,38 @@ object MasterModel {
         amenities.hasParking = parking
         amenities.petFriendly = pets
     }
+
+    fun toApiPosting(): sdk.haha.model.Posting {
+        val posting = sdk.haha.model.Posting()
+        posting.postingId = UUID.randomUUID().toString()
+        posting.postLink = ""
+        posting.datePosted = "June 10, 2020"
+        posting.type = when {
+            this.rental.basement -> "Basement"
+            this.rental.house -> "House"
+            this.rental.complex -> "Complex"
+            else -> "Apartment"
+        }
+
+        posting.address = this.address.address
+        posting.applicationFee = this.financial.applicationFee.toString()
+        posting.aptNum = this.address.aptNum
+        posting.city = this.address.city
+        posting.contractLength = this.rental.contractLength.toString()
+        posting.hasParking = this.amenities.hasParking
+        posting.hasWasherDryer = this.amenities.hasWasherDryer
+        posting.isFurnished = this.amenities.furnished
+        posting.isPetFriendly = this.amenities.petFriendly
+        posting.monthlyRent = this.financial.monthlyRent.toString()
+        posting.monthlyUtilities = this.financial.monthlyUtilities.toString()
+        posting.numBathrooms = this.rental.numBathrooms.toString()
+        posting.numBedrooms = this.rental.numBedrooms.toString()
+        posting.parkingFee = this.financial.parkingFee.toString()
+        posting.securityDeposit = this.financial.securityDeposit.toString()
+        posting.zipCode = this.address.zipCode.toString()
+        return posting
+    }
+
 }
 
 enum class Importance {

@@ -4,12 +4,20 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import hancock.julie.temp452project.R
+import help.Importance
 import help.MasterModel
+import kotlinx.android.synthetic.main.activity_address.*
+import kotlinx.android.synthetic.main.activity_address.optionalText
+import kotlinx.android.synthetic.main.activity_address.skipBtn
+import kotlinx.android.synthetic.main.activity_amenities.*
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.mainNextArrow
+import kotlinx.android.synthetic.main.activity_main.toolbar
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,22 +25,35 @@ class MainActivity : AppCompatActivity() {
     var citySelected = 1
     var monthlyRent = 0.0
     var hasWasherDryer = true
-    var numBedrooms = 0
+    var numBedrooms = 0.0
     var numBathrooms = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         toolbar.setNavigationOnClickListener { onBackPressed() }
+        setupOptional()
         setupListeners()
     }
+
+    private fun setupOptional() {
+        if(MasterModel.isComparing){
+            importantOptions.visibility = View.VISIBLE
+            mostImportant.visibility = View.VISIBLE
+        }
+        else {
+            importantOptions.visibility = View.GONE
+            mostImportant.visibility = View.GONE
+        }
+    }
+
 
     private fun setupListeners() {
         setupImportantToggle()
         setupCityToggle()
-        monthlyRentValue.afterTextChanged { if(it.isNotBlank()) monthlyRent = it.toDouble() }
-        numBedroomsValue.afterTextChanged { if(it.isNotBlank()) numBedrooms = it.toInt() }
-        numBathroomsValue.afterTextChanged { if(it.isNotBlank()) numBathrooms = it.toDouble() }
+        monthlyRentValue.afterTextChanged { if(it.isNotBlank() && it != ".") monthlyRent = it.toDouble() }
+        numBedroomsValue.afterTextChanged { if(it.isNotBlank() && it != ".") numBedrooms = it.toDouble() }
+        numBathroomsValue.afterTextChanged { if(it.isNotBlank() && it != ".") numBathrooms = it.toDouble() }
         washerDryerValue.setOnCheckedChangeListener{ _, isChecked ->
             hasWasherDryer = isChecked
         }

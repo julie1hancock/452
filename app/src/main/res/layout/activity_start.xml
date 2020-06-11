@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    >
+
+    <!--    toolbar-->
+    <androidx.appcompat.widget.Toolbar
+        style="@style/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/toolbar"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                style="@style/toolbarText"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <View
+        style="@style/topGap"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/gapView1"
+        />
+
+<!--    &lt;!&ndash;    instruction block&ndash;&gt;-->
+<!--    <TextView-->
+<!--        app:layout_constraintTop_toBottomOf="@id/gapView1"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:text="@string/please_enter_following_block"-->
+<!--        android:id="@+id/pleaseEnterFollowingBlock"-->
+<!--        style="@style/instructionText"-->
+<!--        />-->
+    <Button
+        style="@style/bigButton"
+        android:id="@+id/add"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/add_posting"
+        />
+
+    <Button
+        style="@style/bigButton"
+        android:id="@+id/compare"
+        app:layout_constraintTop_toBottomOf="@id/add"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Compare Posting"
+        />
+
+
+    <!--    next-->
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        style="@style/nextLayout"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        >-->
+<!--        <ImageView-->
+<!--            style="@style/nextArrow"-->
+<!--            android:id="@+id/mainNextArrow"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            />-->
+<!--        <TextView-->
+<!--            android:text="@string/next_rental_information"-->
+<!--            app:layout_constraintTop_toTopOf="@id/mainNextArrow"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/mainNextArrow"-->
+<!--            app:layout_constraintEnd_toStartOf="@id/mainNextArrow"-->
+<!--            style="@style/nextText"-->
+<!--            />-->
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

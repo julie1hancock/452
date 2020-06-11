@@ -2,10 +2,16 @@ package view
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import hancock.julie.temp452project.R
 import help.MasterModel
 import kotlinx.android.synthetic.main.activity_financial.*
+import kotlinx.android.synthetic.main.activity_financial.mainNextArrow
+import kotlinx.android.synthetic.main.activity_financial.optionalText
+import kotlinx.android.synthetic.main.activity_financial.skipBtn
+import kotlinx.android.synthetic.main.activity_financial.toolbar
+import kotlinx.android.synthetic.main.activity_rental.*
 
 class FinancialActivity : AppCompatActivity() {
 
@@ -18,7 +24,19 @@ class FinancialActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_financial)
         toolbar.setNavigationOnClickListener { onBackPressed() }
+        setupOptional()
         setupListeners()
+    }
+
+    private fun setupOptional() {
+        if(MasterModel.isComparing){
+            skipBtn.visibility = View.VISIBLE
+            optionalText.text = "OPTIONAL financial info"
+        }
+        else {
+            skipBtn.visibility = View.GONE
+            optionalText.text = "Financial Info"
+        }
     }
 
     private fun setupListeners() {

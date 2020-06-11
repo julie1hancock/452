@@ -2,6 +2,7 @@ package view
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import hancock.julie.temp452project.R
@@ -13,13 +14,26 @@ class RentalActivity : AppCompatActivity() {
     var isComplex = true
     var isBasement = false
     var isHouse = false
-    var numMonths = 0
+    var numMonths = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rental)
         toolbar.setNavigationOnClickListener { onBackPressed() }
+        setupOptional()
         setupListeners()
+    }
+
+
+    private fun setupOptional() {
+        if(MasterModel.isComparing){
+            skipBtn.visibility = View.VISIBLE
+            optionalText.text = "OPTIONAL rental info"
+        }
+        else {
+            skipBtn.visibility = View.GONE
+            optionalText.text = "Rental Info"
+        }
     }
 
     private fun setupListeners() {
@@ -32,7 +46,7 @@ class RentalActivity : AppCompatActivity() {
         houseValue.setOnCheckedChangeListener{ _, isChecked ->
             isHouse = isChecked
         }
-        lengthValue.afterTextChanged { if(it.isNotBlank()) numMonths = it.toInt() }
+        lengthValue.afterTextChanged { if(it.isNotBlank()) numMonths = it.toDouble() }
 
         mainNextArrow.setOnClickListener{
             if(isFilledOut()){

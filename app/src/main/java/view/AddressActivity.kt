@@ -2,6 +2,7 @@ package view
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import hancock.julie.temp452project.R
@@ -17,7 +18,19 @@ class AddressActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_address)
         toolbar.setNavigationOnClickListener { onBackPressed() }
+        setupOptional()
         setupListeners()
+    }
+
+    private fun setupOptional() {
+        if(MasterModel.isComparing){
+            skipBtn.visibility = View.VISIBLE
+            optionalText.text = "OPTIONAL address info"
+        }
+        else {
+            skipBtn.visibility = View.GONE
+            optionalText.text = "Address Info"
+        }
     }
 
     private fun setupListeners() {

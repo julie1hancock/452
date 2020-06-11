@@ -13,7 +13,7 @@
  * permissions and limitations under the License.
  */
 
-package sdk.model;
+package sdk.haha.model;
 
 
 public class Empty {

@@ -112,15 +112,17 @@
 
     </GridLayout>
 
+
     <Button
         style="@style/bigButton"
         android:id="@+id/seeResults"
         app:layout_constraintTop_toBottomOf="@id/mainGridLayout"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="@string/view_comp"
         />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

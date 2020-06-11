@@ -63,6 +63,7 @@
     <string name="based_rent">(Based off cost of rent comparisons)</string>
     <string name="based_laundry">(Based off cost of Washer/Dryer comparisons)</string>
     <string name="based_bedroom">(Based off cost of bedroom comparisons)</string>
+    <string name="add_posting">ADD POSTING</string>
 
 
 </resources>

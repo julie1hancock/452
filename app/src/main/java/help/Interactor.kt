@@ -2,40 +2,28 @@ package help
 import io.reactivex.Single
 import android.content.Context
 import com.amazonaws.mobileconnectors.apigateway.ApiClientFactory
-import sdk.TwitterserverClient
+import sdk.haha.PostingsAPIClient
+import sdk.haha.model.Posting
 
 
 class Interactor {
 
 
 //TODO: change api key
-    fun getClient(context: Context) : TwitterserverClient {
-        val factory: ApiClientFactory = ApiClientFactory().apiKey("zPszWwC2Yj347jGQ9dnwe8VesRtoSXQttx3RVlLh")
-        val client = factory.build(TwitterserverClient::class.java)
+    fun getClient(context: Context) : PostingsAPIClient {
+        val factory: ApiClientFactory = ApiClientFactory().apiKey("AKIAV75DILXDS45D6L7H,r2xXxtDatqIKSkrhWk9fsB4HZhRrd2H+5b0szMTA")
+        val client = factory.build(PostingsAPIClient::class.java)
         return client
     }
 
-
-
-//TODO: change Any to Rating
-//TODO:
-    fun getIsScrewed(context: Context) : Single<Any>{
-//        var rating = MasterModel.rating
-//        var posting = MasterModel.posting
-        var address = MasterModel.address
-        var amenities = MasterModel.amenities
-        var financial = MasterModel.financial
-        var rental = MasterModel.rental
-        var importance = MasterModel.importance.toString()
-
+    fun postPosting(context: Context) : Single<Any>{
+        val apiPosting: Posting = MasterModel.toApiPosting()
         return Single.create { emitter ->
             emitter.onSuccess(
-                    getClient(context).gethashtagsGet("10","#hey","")
-//                    getClient(context).getratingGet(address, amenities, financial, rental, importance).toRatingEnum()
+                getClient(context).postingPost(apiPosting,"application/json")
             )
         }
     }
-
 }
 
 fun String.toRatingEnum() : Rating {

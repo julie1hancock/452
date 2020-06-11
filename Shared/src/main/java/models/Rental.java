@@ -4,14 +4,14 @@ import java.util.*;
 
 public class Rental{
         UUID rentalID;
-        int numBedrooms;
+        double numBedrooms;
         double numBathrooms;
         Boolean isComplex;
         Boolean isBasement;
         Boolean isHouse;
         Date contractStartDate;
         Date contractEndDate;
-        int contractLength;
+        double contractLength;
 
         public Rental() {
                 rentalID = null;
@@ -25,7 +25,7 @@ public class Rental{
                 isBasement = null;
         }
 
-        public Rental(UUID rentalID, int numBedrooms, double numBathrooms, Boolean isComplex, Boolean isBasement, Boolean isHouse, Date contractStartDate, Date contractEndDate, int contractLength) {
+        public Rental(UUID rentalID, double numBedrooms, double numBathrooms, Boolean isComplex, Boolean isBasement, Boolean isHouse, Date contractStartDate, Date contractEndDate, double contractLength) {
                 this.rentalID = rentalID;
                 this.numBedrooms = numBedrooms;
                 this.numBathrooms = numBathrooms;
@@ -84,11 +84,11 @@ public class Rental{
                 this.rentalID = rentalID;
         }
 
-        public int getNumBedrooms() {
+        public double getNumBedrooms() {
                 return numBedrooms;
         }
 
-        public void setNumBedrooms(int numBedrooms) {
+        public void setNumBedrooms(double numBedrooms) {
                 this.numBedrooms = numBedrooms;
         }
 
@@ -116,11 +116,11 @@ public class Rental{
                 this.contractEndDate = contractEndDate;
         }
 
-        public int getContractLength() {
+        public double getContractLength() {
                 return contractLength;
         }
 
-        public void setContractLength(int contractLength) {
+        public void setContractLength(double contractLength) {
                 this.contractLength = contractLength;
         }
 }
